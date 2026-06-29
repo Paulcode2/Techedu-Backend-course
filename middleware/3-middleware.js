@@ -7,8 +7,6 @@ const logger = require("./logger");
 const authorize = require("./auth");
 // req => middleware => res
 
-// 1. use vs route
-// options - our own / express / third party
 app.use([logger, authorize]);
 // app.use("/api", logger);
 

@@ -4,12 +4,9 @@
 const express = require("express");
 const app = express();
 const logger = require("./logger");
-const authorize = require("./auth");
 // req => middleware => res
 
-// 1. use vs route
-// options - our own / express / third party
-app.use([logger, authorize]);
+app.use(logger);
 // app.use("/api", logger);
 
 app.get("/", (req, res) => {
@@ -22,7 +19,6 @@ app.get("/api/products", (req, res) => {
   res.send("<h1>Products</h1>");
 });
 app.get("/api/items", (req, res) => {
-  console.log(req.user);
   res.send("<h1>Items</h1>");
 });
 
